@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="title">手荷物持ち込み判定ツール</title>
+    <link rel="stylesheet" href="../src/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="header-top">
+          <h1>✈️ <span data-i18n="main-title">手荷物持ち込み判定ツール</span></h1>
+          <div class="language-switcher">
+            <button class="lang-btn active" data-lang="ja">日本語</button>
+            <button class="lang-btn" data-lang="en">English</button>
+          </div>
+        </div>
+        <p data-i18n="description">
+          スーツケースのサイズを入力すると、どの航空会社で手荷物として持ち込めるかを確認できます。
+        </p>
+      </header>
+
+      <main>
+        <section class="input-section">
+          <h2 data-i18n="input-title">スーツケースのサイズを入力してください</h2>
+          <div class="input-form">
+            <div class="input-group">
+              <label for="width" data-i18n="width">幅 (W)</label>
+              <input
+                type="number"
+                id="width"
+                data-i18n-placeholder="cm-placeholder"
+                placeholder="cm"
+                min="1"
+                max="200"
+              />
+              <span>cm</span>
+            </div>
+            <div class="input-group">
+              <label for="height" data-i18n="height">高さ (H)</label>
+              <input
+                type="number"
+                id="height"
+                data-i18n-placeholder="cm-placeholder"
+                placeholder="cm"
+                min="1"
+                max="200"
+              />
+              <span>cm</span>
+            </div>
+            <div class="input-group">
+              <label for="depth" data-i18n="depth">奥行き (D)</label>
+              <input
+                type="number"
+                id="depth"
+                data-i18n-placeholder="cm-placeholder"
+                placeholder="cm"
+                min="1"
+                max="200"
+              />
+              <span>cm</span>
+            </div>
+            <div class="input-group">
+              <label for="weight" data-i18n="weight">重量 (任意)</label>
+              <input
+                type="number"
+                id="weight"
+                data-i18n-placeholder="kg-placeholder"
+                placeholder="kg"
+                min="0"
+                max="50"
+                step="0.1"
+              />
+              <span>kg</span>
+            </div>
+            <button id="checkButton" onclick="checkCompatibility()" data-i18n="check-button">
+              判定する
+            </button>
+          </div>
+        </section>
+
+        <section class="results-section" id="resultsSection" style="display: none">
+          <h2 data-i18n="results-title">判定結果</h2>
+          <div class="suitcase-info" id="suitcaseInfo"></div>
+
+          <div class="results-container">
+            <div class="compatible-airlines" id="compatibleAirlines">
+              <h3>✅ <span data-i18n="compatible-title">持ち込み可能な航空会社</span></h3>
+              <div class="airline-list" id="compatibleList"></div>
+            </div>
+
+            <div class="incompatible-airlines" id="incompatibleAirlines">
+              <h3>❌ <span data-i18n="incompatible-title">持ち込み不可な航空会社</span></h3>
+              <div class="airline-list" id="incompatibleList"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p data-i18n="disclaimer">
+          ※
+          各航空会社の規定は変更される可能性があります。実際の搭乗前に各航空会社の最新情報をご確認ください。
+        </p>
+      </footer>
+    </div>
+
+    <script src="../src/js/i18n.js"></script>
+    <script src="../src/js/script.js"></script>
+  </body>
+</html>
