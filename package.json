@@ -1,0 +1,44 @@
+{
+  "name": "carry-on-baggage-checker",
+  "version": "1.0.0",
+  "description": "A tool to check carry-on baggage compatibility with airlines",
+  "main": "script.js",
+  "scripts": {
+    "start": "npm run serve",
+    "serve": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:ci": "jest --ci --coverage --watchAll=false",
+    "lint": "eslint *.js src/**/*.js --fix-dry-run",
+    "lint:fix": "eslint *.js src/**/*.js --fix",
+    "format": "prettier --write *.js src/**/*.js public/**/*.html src/**/*.css",
+    "build": "mkdir -p dist && cp -r public/* dist/ && cp -r src dist/ && cp -r data dist/",
+    "dev:watch": "nodemon --exec 'npm run serve'",
+    "clean": "rm -rf coverage node_modules/.cache",
+    "precommit": "npm run lint && npm run test:ci",
+    "prepare": "node -e \"if (process.env.NODE_ENV !== 'production') console.log('Development setup complete')\""
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.5.0",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "eslint": "^8.50.0",
+    "prettier": "^3.0.0",
+    "nodemon": "^3.0.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["<rootDir>/test/setup.js"],
+    "collectCoverageFrom": [
+      "*.js",
+      "src/**/*.js",
+      "!test/**/*",
+      "!node_modules/**/*"
+    ]
+  },
+  "keywords": ["airline", "baggage", "travel", "javascript"],
+  "author": "",
+  "license": "MIT"
+}

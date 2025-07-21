@@ -1,0 +1,6 @@
+{
+  "watch": ["src/", "public/", "data/"],
+  "ext": "js,html,css,tsv",
+  "ignore": ["test/", "coverage/", "node_modules/"],
+  "exec": "echo 'Files changed, restarting server...' && npm run serve"
+}
