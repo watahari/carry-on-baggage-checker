@@ -51,7 +51,7 @@ jobs:
       run: |
         ls -la dist/
         test -f dist/index.html
-        test -f dist/js/script.js
+        test -f dist/src/js/script.js
 
   deploy:
     needs: test
