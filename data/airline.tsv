@@ -1,41 +1,41 @@
 ICAO code	IATA code	航空会社名	Airline name	Country
 AAL	AA	アメリカン航空	American Airlines	USA
 AAR	OZ	アシアナ航空	Asiana Airlines	Korea
-AAY	G4	アレジアント航空		USA
+AAY	G4	アレジアント航空	Allegiant Air	USA
 ABL	BX	エアプサン	Air Busan	Korea
 ABW	RU	エアブリッジカーゴ	AirBridgeCargo Airlines	Russia
 ACA	AC	エア・カナダ	Air Canada	Canada
 ACI	SB	エア・カラン	Aircalin	New Caledonia, France
 ADO	HD	エア・ドゥ	AIR DO	Japan
-AEA	UX	エア・ヨーロッパ		Spain
-AEE	A3	エーゲ航空		Greece
-AFL	SU	アエロフロート		Russia
+AEA	UX	エア・ヨーロッパ	Air Europa	Spain
+AEE	A3	エーゲ航空	Aegean Airlines	Greece
+AFL	SU	アエロフロート	Aeroflot	Russia
 AFR	AF	エールフランス航空	Air France	France
 AHK	LD	エアホンコン	Air Hong Kong	Hong Kong, China
 AIC	AI	エア インディア	Air India Limited	India
 AIH	KJ	エアインチョン	Air Incheon	Korea
-AIZ	IZ	アルキア航空		Israel
+AIZ	IZ	アルキア航空	Arkia Israeli Airlines	Israel
 AJX	NQ	エアージャパン	Air Japan	Japan
 ALK	UL	スリランカ航空	SriLankan Airlines	Sri Lanka
 AMU	NX	マカオ航空	Air Macau	Macau, China
-AMX	AM	アエロメヒコ航空		Mexico
+AMX	AM	アエロメヒコ航空	Aeromexico	Mexico
 ANA	NH	全日本空輸	All Nippon Airways	Japan
 ANZ	NZ	ニュージーランド航空	Air New Zealand	New Zealand
 APG	Z2	フィリピンエアアジア	AirAsia Philippines	Philippines
 APJ	MM	ピーチ・アビエーション	Peach Aviation	Japan
 APZ	YP	エアプレミア	Air Premia	Korea
-ARG	AR	アルゼンチン航空		Argentina
+ARG	AR	アルゼンチン航空	Aerolíneas Argentinas	Argentina
 ARJ		エアジェット・コスタリカ	Aerojet de Costa Rica, S.A.	Costa Rica
-ASA	AS	アラスカ航空		USA
-ASL	JU	エア・セルビア		Serbia
+ASA	AS	アラスカ航空	Alaska Airlines	USA
+ASL	JU	エア・セルビア	Air Serbia	Serbia
 ASV	RS	エアソウル	Air Seoul	Korea
 AUA	OS	オーストリア航空	Austrian Airlines	Austria
-AVA	AV	アビアンカ航空		Colombia
+AVA	AV	アビアンカ航空	Avianca	Colombia
 AZG	7L	シルクウェイウエスト航空	Silk Way West Airlines	Azerbaijan
-AZU	AD	アズールブラジル航空		Brasil
+AZU	AD	アズールブラジル航空	Azul Brazilian Airlines	Brasil
 BAV	QH	バンブー・エアウェイズ	Bamboo Airways	Vietnam
-BAW	BA	ブリティッシュ・エアウェイズ		UK
-BEL	SN	ブリュッセル航空		Belgium
+BAW	BA	ブリティッシュ・エアウェイズ	British Airways	UK
+BEL	SN	ブリュッセル航空	Brussels Airlines	Belgium
 BOX	3S	アエロロジック	Aerologic	Germany
 CAL	CI	チャイナエアライン	China Airlines	Taiwan, China
 CAO	CA	中国国際貨運航空	Air China Cargo	China
@@ -43,18 +43,18 @@ CCA	CA	中国国際航空	Air China	China
 CDG	SC	山東航空	Shandong Airlines	China
 CEB	5J	セブ・パシフィック航空	Cebu Pacific Air	Philippines
 CES	MU	中国東方航空	China Eastern Airlines	China
-CFG	DE	コンドル航空		Germany
+CFG	DE	コンドル航空	Condor	Germany
 CHH	HU	海南航空	Hainan Airlines	China
 CJT	W8	カーゴジェット・エアウェイズ	Cargojet Airways	Canada
 CKK	CK	中国貨運航空	China Cargo Airlines	China
 CKS	K4	カリッタ航空	Kalitta Air	USA
 CLX	CV	カーゴルックス	Cargolux	Luxembourg
-CMP	CM	コパ航空		Panama
+CMP	CM	コパ航空	Copa Airlines	Panama
 CPA	CX	キャセイパシフィック航空	Cathay Pacific	Hong Kong, China
 CPJ		ボルチモア航空輸送	Baltimore Air Transport	USA
 CQH	9C	春秋航空	Spring Airlines	China
 CRK	HX	香港航空	Hong Kong Airlines	Hong Kong, China
-CRL	SS	コルセール		France
+CRL	SS	コルセール	Corsair	France
 CSC	3U	四川航空	Sichuan Airlines	China
 CSN	CZ	中国南方航空	China Southern Airlines	China
 CSS	O3	順豊航空	SF Airlines	China
@@ -66,7 +66,7 @@ DAL	DL	デルタ航空	Delta Air Lines	USA
 DKH	HO	上海吉祥航空	Juneyao Airlines	China
 DLH	LH	ルフトハンザドイツ航空	Lufthansa	Germany
 EDW	WK	エーデルワイス航空	Edelweiss Air	Switzerland
-EIN	EI	エアリンガス		Ireland
+EIN	EI	エアリンガス	Aer Lingus	Ireland
 ELY	LY	エル・アル イスラエル航空	El Al Israel Airlines	Israel
 ETD	EY	エティハド航空	Etihad Airways	UAE
 ETH	ET	エチオピア航空	Ethiopian Airlines	Ethiopia
@@ -80,7 +80,7 @@ FDX	FX	フェデラルエクスプレス	FedEx Express	USA
 FGW	4V	フライカンウォン	Fly Gangwon	Korea
 FIN	AY	フィンエアー	Finnair	Finland
 FJI	FJ	フィジー・エアウェイズ	Fiji Airways	Fiji
-FWI	TX	エア・カライベス		French West Indies
+FWI	TX	エア・カライベス	Air Caraibes	French West Indies
 GEC	LH	ルフトハンザカーゴ	Lufthansa Cargo	Germany
 GIA	GA	ガルーダ・インドネシア航空	Garuda Indonesia	Indonesia
 GLO	G3	ゴル航空	GOL Airlines	Brasil
