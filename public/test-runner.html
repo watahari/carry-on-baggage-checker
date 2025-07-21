@@ -1,493 +1,496 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>テスト実行結果 - 手荷物持ち込み判定ツール</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: linear-gradient(135deg, #2563eb, #10b981);
-            color: white;
-            border-radius: 8px;
-        }
-        .test-section {
-            margin-bottom: 30px;
-            padding: 20px;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-        }
-        .test-section h3 {
-            color: #1e293b;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .test-item {
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 4px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .test-pass {
-            background-color: #dcfce7;
-            border-left: 4px solid #10b981;
-        }
-        .test-fail {
-            background-color: #fef2f2;
-            border-left: 4px solid #ef4444;
-        }
-        .test-status {
-            font-weight: bold;
-        }
-        .test-pass .test-status {
-            color: #10b981;
-        }
-        .test-fail .test-status {
-            color: #ef4444;
-        }
-        .run-tests-btn {
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-        .run-tests-btn:hover {
-            background: #1d4ed8;
-        }
-        .console-output {
-            background: #1a1a1a;
-            color: #00ff00;
-            padding: 15px;
-            border-radius: 6px;
-            font-family: monospace;
-            font-size: 14px;
-            max-height: 300px;
-            overflow-y: auto;
-            white-space: pre-wrap;
-        }
-        .summary {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .summary-card {
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        .summary-card.total {
-            background: #f1f5f9;
-            border: 2px solid #cbd5e1;
-        }
-        .summary-card.pass {
-            background: #dcfce7;
-            border: 2px solid #10b981;
-        }
-        .summary-card.fail {
-            background: #fef2f2;
-            border: 2px solid #ef4444;
-        }
-        .summary-card h4 {
-            margin: 0 0 10px 0;
-            color: #374151;
-        }
-        .summary-card .number {
-            font-size: 2rem;
-            font-weight: bold;
-            margin: 0;
-        }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #2563eb, #10b981);
+        color: white;
+        border-radius: 8px;
+      }
+      .test-section {
+        margin-bottom: 30px;
+        padding: 20px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+      }
+      .test-section h3 {
+        color: #1e293b;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .test-item {
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .test-pass {
+        background-color: #dcfce7;
+        border-left: 4px solid #10b981;
+      }
+      .test-fail {
+        background-color: #fef2f2;
+        border-left: 4px solid #ef4444;
+      }
+      .test-status {
+        font-weight: bold;
+      }
+      .test-pass .test-status {
+        color: #10b981;
+      }
+      .test-fail .test-status {
+        color: #ef4444;
+      }
+      .run-tests-btn {
+        background: #2563eb;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+      .run-tests-btn:hover {
+        background: #1d4ed8;
+      }
+      .console-output {
+        background: #1a1a1a;
+        color: #00ff00;
+        padding: 15px;
+        border-radius: 6px;
+        font-family: monospace;
+        font-size: 14px;
+        max-height: 300px;
+        overflow-y: auto;
+        white-space: pre-wrap;
+      }
+      .summary {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .summary-card {
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+      }
+      .summary-card.total {
+        background: #f1f5f9;
+        border: 2px solid #cbd5e1;
+      }
+      .summary-card.pass {
+        background: #dcfce7;
+        border: 2px solid #10b981;
+      }
+      .summary-card.fail {
+        background: #fef2f2;
+        border: 2px solid #ef4444;
+      }
+      .summary-card h4 {
+        margin: 0 0 10px 0;
+        color: #374151;
+      }
+      .summary-card .number {
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 0;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="header">
-            <h1>🧪 テストスイート実行</h1>
-            <p>手荷物持ち込み判定ツールの自動テスト</p>
-        </div>
+      <div class="header">
+        <h1>🧪 テストスイート実行</h1>
+        <p>手荷物持ち込み判定ツールの自動テスト</p>
+      </div>
 
-        <button class="run-tests-btn" onclick="runAllTests()">すべてのテストを実行</button>
+      <button class="run-tests-btn" onclick="runAllTests()">すべてのテストを実行</button>
 
-        <div class="summary" id="testSummary">
-            <div class="summary-card total">
-                <h4>総テスト数</h4>
-                <div class="number" id="totalTests">-</div>
-            </div>
-            <div class="summary-card pass">
-                <h4>成功</h4>
-                <div class="number" id="passedTests">-</div>
-            </div>
-            <div class="summary-card fail">
-                <h4>失敗</h4>
-                <div class="number" id="failedTests">-</div>
-            </div>
+      <div class="summary" id="testSummary">
+        <div class="summary-card total">
+          <h4>総テスト数</h4>
+          <div class="number" id="totalTests">-</div>
         </div>
+        <div class="summary-card pass">
+          <h4>成功</h4>
+          <div class="number" id="passedTests">-</div>
+        </div>
+        <div class="summary-card fail">
+          <h4>失敗</h4>
+          <div class="number" id="failedTests">-</div>
+        </div>
+      </div>
 
-        <div class="test-section">
-            <h3>📊 データ読み込み機能</h3>
-            <div id="dataLoadingTests">テストを実行してください</div>
-        </div>
+      <div class="test-section">
+        <h3>📊 データ読み込み機能</h3>
+        <div id="dataLoadingTests">テストを実行してください</div>
+      </div>
 
-        <div class="test-section">
-            <h3>🧮 判定ロジック</h3>
-            <div id="compatibilityTests">テストを実行してください</div>
-        </div>
+      <div class="test-section">
+        <h3>🧮 判定ロジック</h3>
+        <div id="compatibilityTests">テストを実行してください</div>
+      </div>
 
-        <div class="test-section">
-            <h3>🌐 多言語機能</h3>
-            <div id="i18nTests">テストを実行してください</div>
-        </div>
+      <div class="test-section">
+        <h3>🌐 多言語機能</h3>
+        <div id="i18nTests">テストを実行してください</div>
+      </div>
 
-        <div class="test-section">
-            <h3>🔗 統合テスト</h3>
-            <div id="integrationTests">テストを実行してください</div>
-        </div>
+      <div class="test-section">
+        <h3>🔗 統合テスト</h3>
+        <div id="integrationTests">テストを実行してください</div>
+      </div>
 
-        <div class="test-section">
-            <h3>📋 コンソール出力</h3>
-            <div class="console-output" id="consoleOutput">テスト実行後にここに出力が表示されます</div>
-        </div>
+      <div class="test-section">
+        <h3>📋 コンソール出力</h3>
+        <div class="console-output" id="consoleOutput">テスト実行後にここに出力が表示されます</div>
+      </div>
     </div>
 
     <script src="test/test-utils.js"></script>
     <script>
-        let testResults = {
-            total: 0,
-            passed: 0,
-            failed: 0,
-            details: []
-        };
+      let testResults = {
+        total: 0,
+        passed: 0,
+        failed: 0,
+        details: []
+      };
 
-        function log(message) {
-            const consoleOutput = document.getElementById('consoleOutput');
-            const timestamp = new Date().toLocaleTimeString();
-            consoleOutput.textContent += `[${timestamp}] ${message}\n`;
-            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+      function log(message) {
+        const consoleOutput = document.getElementById('consoleOutput');
+        const timestamp = new Date().toLocaleTimeString();
+        consoleOutput.textContent += `[${timestamp}] ${message}\n`;
+        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+      }
+
+      function updateSummary() {
+        document.getElementById('totalTests').textContent = testResults.total;
+        document.getElementById('passedTests').textContent = testResults.passed;
+        document.getElementById('failedTests').textContent = testResults.failed;
+      }
+
+      function createTestItem(testName, passed, error = null) {
+        const testItem = document.createElement('div');
+        testItem.className = `test-item ${passed ? 'test-pass' : 'test-fail'}`;
+
+        const testDescription = document.createElement('span');
+        testDescription.textContent = testName;
+
+        const testStatus = document.createElement('span');
+        testStatus.className = 'test-status';
+        testStatus.textContent = passed ? '✅ PASS' : '❌ FAIL';
+
+        testItem.appendChild(testDescription);
+        testItem.appendChild(testStatus);
+
+        if (error) {
+          const errorDiv = document.createElement('div');
+          errorDiv.style.cssText =
+            'margin-top: 10px; font-size: 12px; color: #666; font-family: monospace;';
+          errorDiv.textContent = error;
+          testItem.appendChild(errorDiv);
         }
 
-        function updateSummary() {
-            document.getElementById('totalTests').textContent = testResults.total;
-            document.getElementById('passedTests').textContent = testResults.passed;
-            document.getElementById('failedTests').textContent = testResults.failed;
-        }
+        return testItem;
+      }
 
-        function createTestItem(testName, passed, error = null) {
-            const testItem = document.createElement('div');
-            testItem.className = `test-item ${passed ? 'test-pass' : 'test-fail'}`;
-            
-            const testDescription = document.createElement('span');
-            testDescription.textContent = testName;
-            
-            const testStatus = document.createElement('span');
-            testStatus.className = 'test-status';
-            testStatus.textContent = passed ? '✅ PASS' : '❌ FAIL';
-            
-            testItem.appendChild(testDescription);
-            testItem.appendChild(testStatus);
-            
-            if (error) {
-                const errorDiv = document.createElement('div');
-                errorDiv.style.cssText = 'margin-top: 10px; font-size: 12px; color: #666; font-family: monospace;';
-                errorDiv.textContent = error;
-                testItem.appendChild(errorDiv);
-            }
-            
-            return testItem;
-        }
+      // TSVパース機能のテスト
+      function testDataParsing() {
+        log('📊 データ読み込み機能テスト開始');
+        const container = document.getElementById('dataLoadingTests');
+        container.innerHTML = '';
 
-        // TSVパース機能のテスト
-        function testDataParsing() {
-            log('📊 データ読み込み機能テスト開始');
-            const container = document.getElementById('dataLoadingTests');
-            container.innerHTML = '';
-
-            const tests = [
-                {
-                    name: 'TSVデータの正常解析',
-                    test: () => {
-                        const tsvData = `ICAO code\tIATA code\t航空会社名
+        const tests = [
+          {
+            name: 'TSVデータの正常解析',
+            test: () => {
+              const tsvData = `ICAO code\tIATA code\t航空会社名
 ANA\tNH\t全日本空輸
 JAL\tJL\t日本航空`;
-                        const result = parseTSV(tsvData);
-                        return result.length === 2 && result[0]['ICAO code'] === 'ANA';
-                    }
-                },
-                {
-                    name: '空データの処理',
-                    test: () => {
-                        const result = parseTSV('ICAO code\tIATA code\t航空会社名');
-                        return result.length === 0;
-                    }
-                },
-                {
-                    name: '不正行の除外',
-                    test: () => {
-                        const tsvData = `ICAO code\tIATA code\t航空会社名
+              const result = parseTSV(tsvData);
+              return result.length === 2 && result[0]['ICAO code'] === 'ANA';
+            }
+          },
+          {
+            name: '空データの処理',
+            test: () => {
+              const result = parseTSV('ICAO code\tIATA code\t航空会社名');
+              return result.length === 0;
+            }
+          },
+          {
+            name: '不正行の除外',
+            test: () => {
+              const tsvData = `ICAO code\tIATA code\t航空会社名
 ANA\tNH\t全日本空輸
 INVALID_ROW
 JAL\tJL\t日本航空`;
-                        const result = parseTSV(tsvData);
-                        return result.length === 1 && result[0]['ICAO code'] === 'JAL';
-                    }
-                }
-            ];
+              const result = parseTSV(tsvData);
+              return result.length === 1 && result[0]['ICAO code'] === 'JAL';
+            }
+          }
+        ];
 
-            tests.forEach(testCase => {
-                try {
-                    const passed = testCase.test();
-                    container.appendChild(createTestItem(testCase.name, passed));
-                    testResults.total++;
-                    if (passed) testResults.passed++;
-                    else testResults.failed++;
-                    log(`${testCase.name}: ${passed ? 'PASS' : 'FAIL'}`);
-                } catch (error) {
-                    container.appendChild(createTestItem(testCase.name, false, error.message));
-                    testResults.total++;
-                    testResults.failed++;
-                    log(`${testCase.name}: FAIL - ${error.message}`);
-                }
-            });
-        }
+        tests.forEach(testCase => {
+          try {
+            const passed = testCase.test();
+            container.appendChild(createTestItem(testCase.name, passed));
+            testResults.total++;
+            if (passed) testResults.passed++;
+            else testResults.failed++;
+            log(`${testCase.name}: ${passed ? 'PASS' : 'FAIL'}`);
+          } catch (error) {
+            container.appendChild(createTestItem(testCase.name, false, error.message));
+            testResults.total++;
+            testResults.failed++;
+            log(`${testCase.name}: FAIL - ${error.message}`);
+          }
+        });
+      }
 
-        // 判定ロジックのテスト
-        function testCompatibilityLogic() {
-            log('🧮 判定ロジックテスト開始');
-            const container = document.getElementById('compatibilityTests');
-            container.innerHTML = '';
+      // 判定ロジックのテスト
+      function testCompatibilityLogic() {
+        log('🧮 判定ロジックテスト開始');
+        const container = document.getElementById('compatibilityTests');
+        container.innerHTML = '';
 
-            const tests = [
-                {
-                    name: '制限内スーツケースの判定',
-                    test: () => {
-                        const suitcase = createMockSuitcase(50, 35, 20, 5);
-                        const baggage = createMockBaggage('ANA', 55, 40, 25, 115, 10);
-                        return checkSuitcaseCompatibility(suitcase, baggage);
-                    }
-                },
-                {
-                    name: '幅超過スーツケースの判定',
-                    test: () => {
-                        const suitcase = createMockSuitcase(60, 35, 20, 5);
-                        const baggage = createMockBaggage('ANA', 55, 40, 25, 115, 10);
-                        return !checkSuitcaseCompatibility(suitcase, baggage);
-                    }
-                },
-                {
-                    name: '重量超過スーツケースの判定',
-                    test: () => {
-                        const suitcase = createMockSuitcase(50, 35, 20, 15);
-                        const baggage = createMockBaggage('ANA', 55, 40, 25, 115, 10);
-                        return !checkSuitcaseCompatibility(suitcase, baggage);
-                    }
-                },
-                {
-                    name: '3辺合計超過スーツケースの判定',
-                    test: () => {
-                        const suitcase = createMockSuitcase(55, 40, 25, 5); // 120cm
-                        const baggage = createMockBaggage('ANA', 55, 40, 25, 115, 10);
-                        return !checkSuitcaseCompatibility(suitcase, baggage);
-                    }
-                },
-                {
-                    name: '重量制限なしの処理',
-                    test: () => {
-                        const suitcase = createMockSuitcase(50, 35, 20, 50);
-                        const baggage = createMockBaggage('TEST', 55, 40, 25, 115, null);
-                        return checkSuitcaseCompatibility(suitcase, baggage);
-                    }
-                }
-            ];
+        const tests = [
+          {
+            name: '制限内スーツケースの判定',
+            test: () => {
+              const suitcase = createMockSuitcase(50, 35, 20, 5);
+              const baggage = createMockBaggage('ANA', 55, 40, 25, 115, 10);
+              return checkSuitcaseCompatibility(suitcase, baggage);
+            }
+          },
+          {
+            name: '幅超過スーツケースの判定',
+            test: () => {
+              const suitcase = createMockSuitcase(60, 35, 20, 5);
+              const baggage = createMockBaggage('ANA', 55, 40, 25, 115, 10);
+              return !checkSuitcaseCompatibility(suitcase, baggage);
+            }
+          },
+          {
+            name: '重量超過スーツケースの判定',
+            test: () => {
+              const suitcase = createMockSuitcase(50, 35, 20, 15);
+              const baggage = createMockBaggage('ANA', 55, 40, 25, 115, 10);
+              return !checkSuitcaseCompatibility(suitcase, baggage);
+            }
+          },
+          {
+            name: '3辺合計超過スーツケースの判定',
+            test: () => {
+              const suitcase = createMockSuitcase(55, 40, 25, 5); // 120cm
+              const baggage = createMockBaggage('ANA', 55, 40, 25, 115, 10);
+              return !checkSuitcaseCompatibility(suitcase, baggage);
+            }
+          },
+          {
+            name: '重量制限なしの処理',
+            test: () => {
+              const suitcase = createMockSuitcase(50, 35, 20, 50);
+              const baggage = createMockBaggage('TEST', 55, 40, 25, 115, null);
+              return checkSuitcaseCompatibility(suitcase, baggage);
+            }
+          }
+        ];
 
-            tests.forEach(testCase => {
-                try {
-                    const passed = testCase.test();
-                    container.appendChild(createTestItem(testCase.name, passed));
-                    testResults.total++;
-                    if (passed) testResults.passed++;
-                    else testResults.failed++;
-                    log(`${testCase.name}: ${passed ? 'PASS' : 'FAIL'}`);
-                } catch (error) {
-                    container.appendChild(createTestItem(testCase.name, false, error.message));
-                    testResults.total++;
-                    testResults.failed++;
-                    log(`${testCase.name}: FAIL - ${error.message}`);
-                }
-            });
-        }
+        tests.forEach(testCase => {
+          try {
+            const passed = testCase.test();
+            container.appendChild(createTestItem(testCase.name, passed));
+            testResults.total++;
+            if (passed) testResults.passed++;
+            else testResults.failed++;
+            log(`${testCase.name}: ${passed ? 'PASS' : 'FAIL'}`);
+          } catch (error) {
+            container.appendChild(createTestItem(testCase.name, false, error.message));
+            testResults.total++;
+            testResults.failed++;
+            log(`${testCase.name}: FAIL - ${error.message}`);
+          }
+        });
+      }
 
-        // 多言語機能のテスト（簡易版）
-        function testI18n() {
-            log('🌐 多言語機能テスト開始');
-            const container = document.getElementById('i18nTests');
-            container.innerHTML = '';
+      // 多言語機能のテスト（簡易版）
+      function testI18n() {
+        log('🌐 多言語機能テスト開始');
+        const container = document.getElementById('i18nTests');
+        container.innerHTML = '';
 
-            const tests = [
-                {
-                    name: 'DOM要素の存在確認',
-                    test: () => {
-                        return document.querySelector('[data-lang="ja"]') !== null;
-                    }
-                },
-                {
-                    name: '言語ボタンの設定',
-                    test: () => {
-                        const jaBtn = document.querySelector('[data-lang="ja"]');
-                        const enBtn = document.querySelector('[data-lang="en"]');
-                        return jaBtn && enBtn;
-                    }
-                }
-            ];
+        const tests = [
+          {
+            name: 'DOM要素の存在確認',
+            test: () => {
+              return document.querySelector('[data-lang="ja"]') !== null;
+            }
+          },
+          {
+            name: '言語ボタンの設定',
+            test: () => {
+              const jaBtn = document.querySelector('[data-lang="ja"]');
+              const enBtn = document.querySelector('[data-lang="en"]');
+              return jaBtn && enBtn;
+            }
+          }
+        ];
 
-            // 簡易的な多言語テスト要素を動的に追加
-            const testElements = document.createElement('div');
-            testElements.innerHTML = `
+        // 簡易的な多言語テスト要素を動的に追加
+        const testElements = document.createElement('div');
+        testElements.innerHTML = `
                 <button data-lang="ja" class="lang-btn active">日本語</button>
                 <button data-lang="en" class="lang-btn">English</button>
             `;
-            testElements.style.display = 'none';
-            document.body.appendChild(testElements);
+        testElements.style.display = 'none';
+        document.body.appendChild(testElements);
 
-            tests.forEach(testCase => {
-                try {
-                    const passed = testCase.test();
-                    container.appendChild(createTestItem(testCase.name, passed));
-                    testResults.total++;
-                    if (passed) testResults.passed++;
-                    else testResults.failed++;
-                    log(`${testCase.name}: ${passed ? 'PASS' : 'FAIL'}`);
-                } catch (error) {
-                    container.appendChild(createTestItem(testCase.name, false, error.message));
-                    testResults.total++;
-                    testResults.failed++;
-                    log(`${testCase.name}: FAIL - ${error.message}`);
-                }
-            });
-
-            // テスト要素を削除
-            document.body.removeChild(testElements);
-        }
-
-        // 統合テスト
-        function testIntegration() {
-            log('🔗 統合テスト開始');
-            const container = document.getElementById('integrationTests');
-            container.innerHTML = '';
-
-            const tests = [
-                {
-                    name: '標準スーツケースの複数航空会社判定',
-                    test: () => {
-                        const suitcase = createMockSuitcase(50, 35, 20, 6);
-                        const baggages = [
-                            createMockBaggage('ANA', 55, 40, 25, 115, 10),
-                            createMockBaggage('JAL', 55, 40, 25, 115, 10),
-                            createMockBaggage('APJ', 55, 40, 25, 115, 7)
-                        ];
-                        
-                        const compatibleCount = baggages.filter(baggage => 
-                            checkSuitcaseCompatibility(suitcase, baggage)
-                        ).length;
-                        
-                        return compatibleCount >= 2; // 少なくとも2社は対応
-                    }
-                },
-                {
-                    name: '大型スーツケースの全社不適合',
-                    test: () => {
-                        const largeSuitcase = createMockSuitcase(60, 45, 30, 12);
-                        const baggages = [
-                            createMockBaggage('ANA', 55, 40, 25, 115, 10),
-                            createMockBaggage('JAL', 55, 40, 25, 115, 10)
-                        ];
-                        
-                        const compatibleCount = baggages.filter(baggage => 
-                            checkSuitcaseCompatibility(largeSuitcase, baggage)
-                        ).length;
-                        
-                        return compatibleCount === 0;
-                    }
-                },
-                {
-                    name: '重量制限による差異',
-                    test: () => {
-                        const heavySuitcase = createMockSuitcase(50, 35, 20, 8);
-                        const strictBaggage = createMockBaggage('APJ', 55, 40, 25, 115, 7);
-                        const normalBaggage = createMockBaggage('ANA', 55, 40, 25, 115, 10);
-                        
-                        const strictOk = checkSuitcaseCompatibility(heavySuitcase, strictBaggage);
-                        const normalOk = checkSuitcaseCompatibility(heavySuitcase, normalBaggage);
-                        
-                        return !strictOk && normalOk;
-                    }
-                }
-            ];
-
-            tests.forEach(testCase => {
-                try {
-                    const passed = testCase.test();
-                    container.appendChild(createTestItem(testCase.name, passed));
-                    testResults.total++;
-                    if (passed) testResults.passed++;
-                    else testResults.failed++;
-                    log(`${testCase.name}: ${passed ? 'PASS' : 'FAIL'}`);
-                } catch (error) {
-                    container.appendChild(createTestItem(testCase.name, false, error.message));
-                    testResults.total++;
-                    testResults.failed++;
-                    log(`${testCase.name}: FAIL - ${error.message}`);
-                }
-            });
-        }
-
-        function runAllTests() {
-            testResults = { total: 0, passed: 0, failed: 0, details: [] };
-            
-            document.getElementById('consoleOutput').textContent = '';
-            log('🚀 テスト実行開始');
-            
-            testDataParsing();
-            testCompatibilityLogic();
-            testI18n();
-            testIntegration();
-            
-            updateSummary();
-            
-            log(`\n📊 テスト実行完了`);
-            log(`総計: ${testResults.total} 件`);
-            log(`成功: ${testResults.passed} 件`);
-            log(`失敗: ${testResults.failed} 件`);
-            log(`成功率: ${Math.round((testResults.passed / testResults.total) * 100)}%`);
-        }
-
-        // ページ読み込み時に初期化
-        document.addEventListener('DOMContentLoaded', () => {
-            updateSummary();
-            log('テストランナーが準備完了しました。"すべてのテストを実行"ボタンをクリックしてテストを開始してください。');
+        tests.forEach(testCase => {
+          try {
+            const passed = testCase.test();
+            container.appendChild(createTestItem(testCase.name, passed));
+            testResults.total++;
+            if (passed) testResults.passed++;
+            else testResults.failed++;
+            log(`${testCase.name}: ${passed ? 'PASS' : 'FAIL'}`);
+          } catch (error) {
+            container.appendChild(createTestItem(testCase.name, false, error.message));
+            testResults.total++;
+            testResults.failed++;
+            log(`${testCase.name}: FAIL - ${error.message}`);
+          }
         });
+
+        // テスト要素を削除
+        document.body.removeChild(testElements);
+      }
+
+      // 統合テスト
+      function testIntegration() {
+        log('🔗 統合テスト開始');
+        const container = document.getElementById('integrationTests');
+        container.innerHTML = '';
+
+        const tests = [
+          {
+            name: '標準スーツケースの複数航空会社判定',
+            test: () => {
+              const suitcase = createMockSuitcase(50, 35, 20, 6);
+              const baggages = [
+                createMockBaggage('ANA', 55, 40, 25, 115, 10),
+                createMockBaggage('JAL', 55, 40, 25, 115, 10),
+                createMockBaggage('APJ', 55, 40, 25, 115, 7)
+              ];
+
+              const compatibleCount = baggages.filter(baggage =>
+                checkSuitcaseCompatibility(suitcase, baggage)
+              ).length;
+
+              return compatibleCount >= 2; // 少なくとも2社は対応
+            }
+          },
+          {
+            name: '大型スーツケースの全社不適合',
+            test: () => {
+              const largeSuitcase = createMockSuitcase(60, 45, 30, 12);
+              const baggages = [
+                createMockBaggage('ANA', 55, 40, 25, 115, 10),
+                createMockBaggage('JAL', 55, 40, 25, 115, 10)
+              ];
+
+              const compatibleCount = baggages.filter(baggage =>
+                checkSuitcaseCompatibility(largeSuitcase, baggage)
+              ).length;
+
+              return compatibleCount === 0;
+            }
+          },
+          {
+            name: '重量制限による差異',
+            test: () => {
+              const heavySuitcase = createMockSuitcase(50, 35, 20, 8);
+              const strictBaggage = createMockBaggage('APJ', 55, 40, 25, 115, 7);
+              const normalBaggage = createMockBaggage('ANA', 55, 40, 25, 115, 10);
+
+              const strictOk = checkSuitcaseCompatibility(heavySuitcase, strictBaggage);
+              const normalOk = checkSuitcaseCompatibility(heavySuitcase, normalBaggage);
+
+              return !strictOk && normalOk;
+            }
+          }
+        ];
+
+        tests.forEach(testCase => {
+          try {
+            const passed = testCase.test();
+            container.appendChild(createTestItem(testCase.name, passed));
+            testResults.total++;
+            if (passed) testResults.passed++;
+            else testResults.failed++;
+            log(`${testCase.name}: ${passed ? 'PASS' : 'FAIL'}`);
+          } catch (error) {
+            container.appendChild(createTestItem(testCase.name, false, error.message));
+            testResults.total++;
+            testResults.failed++;
+            log(`${testCase.name}: FAIL - ${error.message}`);
+          }
+        });
+      }
+
+      function runAllTests() {
+        testResults = { total: 0, passed: 0, failed: 0, details: [] };
+
+        document.getElementById('consoleOutput').textContent = '';
+        log('🚀 テスト実行開始');
+
+        testDataParsing();
+        testCompatibilityLogic();
+        testI18n();
+        testIntegration();
+
+        updateSummary();
+
+        log(`\n📊 テスト実行完了`);
+        log(`総計: ${testResults.total} 件`);
+        log(`成功: ${testResults.passed} 件`);
+        log(`失敗: ${testResults.failed} 件`);
+        log(`成功率: ${Math.round((testResults.passed / testResults.total) * 100)}%`);
+      }
+
+      // ページ読み込み時に初期化
+      document.addEventListener('DOMContentLoaded', () => {
+        updateSummary();
+        log(
+          'テストランナーが準備完了しました。"すべてのテストを実行"ボタンをクリックしてテストを開始してください。'
+        );
+      });
     </script>
-</body>
+  </body>
 </html>
