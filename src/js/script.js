@@ -17,7 +17,6 @@ async function loadTSVData() {
     airlinesData = parseTSV(airlinesText);
     baggageData = parseTSV(baggageText);
     countriesData = parseTSV(countriesText);
-
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Error loading data:', error);
@@ -60,7 +59,6 @@ window.checkCompatibility = function checkCompatibility() {
   const results = checkAllAirlines(userSuitcase);
   displayResults(userSuitcase, results);
 };
-
 
 function checkAllAirlines(suitcase) {
   const compatible = [];
