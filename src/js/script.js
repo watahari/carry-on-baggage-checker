@@ -5,9 +5,9 @@ let countriesData = [];
 async function loadTSVData() {
   try {
     const [airlinesResponse, baggageResponse, countriesResponse] = await Promise.all([
-      fetch('../data/airline.tsv'),
-      fetch('../data/carry-on-baggage.tsv'),
-      fetch('../data/country.tsv')
+      fetch('data/airline.tsv'),
+      fetch('data/carry-on-baggage.tsv'),
+      fetch('data/country.tsv')
     ]);
 
     const airlinesText = await airlinesResponse.text();
